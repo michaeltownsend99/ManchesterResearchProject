@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="CustomControls.FloatingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CustomControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    NavigationCacheMode="Required">
+    <Grid Name="Notes">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+        </Grid.RowDefinitions>
+
+        
+        <Button Name="NavigateToMainPageButton" Content="Fixed mode"  Grid.Row="0" HorizontalAlignment="Left" Height="46" Margin="1244,0,0,0" VerticalAlignment="Center" Width="122" Click="NavigateToMainPageButton_Click"></Button>
+
+        <StackPanel Name="Toolbar" Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+            <Button Name="CodeBoxButton" Grid.Row="1"  Content="&#xE943;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CodeBoxButton_Click" />
+            <Button Name="NotesBoxButton"  Content="&#xE70B;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="1"  Click="NotesBoxButton_Click"/>
+            <Button Name="DiagramButton" HorizontalAlignment="Left" VerticalAlignment="Center" Click="DiagramButton_Click" Grid.Row="1">
+                <Image Source="Assets\flow-chart.png" Height="15" Width="16"/>
+            </Button>
+            <Button Name="MathBoxButton" Grid.Row="1" HorizontalAlignment="Left" Content="&#xE94B;" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Click="MathBoxButton_Click"/>
+        </StackPanel>
+        <ScrollViewer Name="FloatingAreaScroller" Grid.Row="2" HorizontalScrollMode="Enabled" VerticalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Canvas Name="FloatingBoxArea" Background="Transparent" Height="20000" Width="20000" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PointerPressed="FloatingBoxArea_PointerPressed" x:FieldModifier="public"/>
+        </ScrollViewer>
+    </Grid>
+</Page>

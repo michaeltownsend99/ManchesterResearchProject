@@ -1,0 +1,36 @@
+﻿<UserControl
+    x:Class="CustomControls.FloatingCodeBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CustomControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Border BorderBrush="Gray" BorderThickness="1" 
+        Height="Auto" Width="Auto" ManipulationMode="TranslateX,TranslateY"
+      ManipulationStarted="Manipulator_OnManipulationStarted"
+      ManipulationDelta="Manipulator_OnManipulationDelta">
+        <Grid BorderBrush="Black">
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.Background>
+                <SolidColorBrush Color="{ThemeResource SystemAltMediumColor}"/>
+            </Grid.Background>
+            <StackPanel Name="closeAndConnectionsStack" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Grid.Row="0" x:FieldModifier="public">
+                <Button Name="connectionsButton" Height="14" Width="21" Background="LimeGreen" Click="connectionsButton_Click" x:FieldModifier="public"/>
+                <Button Name="closeButton" Height="14" Width="21" Background="Firebrick" Click="closeButton_Click" x:FieldModifier="public"/>
+            </StackPanel>
+            <Button  Name ="RunButton" Grid.Row="0" HorizontalAlignment="Left" Margin="312,0,0,0" VerticalAlignment="Center" Click="RunButton_Click">
+                <SymbolIcon Symbol="Play" />
+            </Button>
+            <TextBox Name ="CodeBoxContent" Grid.Row="1" BorderThickness="0" HorizontalAlignment="Stretch" Text="" VerticalAlignment="Stretch"  Background="#66FFFFFF" TextWrapping="Wrap" AcceptsReturn="True" FontFamily="Courier New" x:FieldModifier="public" IsSpellCheckEnabled="False"/>
+            <TextBox Name ="CodeBoxTitle"  Grid.Row="0" BorderThickness="1" BorderBrush="Gray" TextAlignment="Left" HorizontalAlignment="Left" Text="Title" VerticalAlignment="Center" x:FieldModifier="public" Width="308"/>
+            <Rectangle x:Name="ResizeRectangle" Grid.Row="1" IsHitTestVisible="False" Width="8" Height="8" Fill="LightGray" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        </Grid>
+    </Border>
+</UserControl>

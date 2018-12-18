@@ -1,0 +1,34 @@
+﻿<UserControl
+    x:Class="CustomControls.Connections"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CustomControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="1000"
+    d:DesignWidth="800">
+        <Grid Name="ConnectionsGrid" Width="Auto" Height="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="14"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+        <Button Name="closeButton" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="14" Width="21" Background="Firebrick" Click="closeButton_Click" x:FieldModifier="public"/>
+        <ScrollViewer Name="StackScroller" Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <StackPanel Name="connectionsStack" Width="800" x:FieldModifier="public"/>
+            </ScrollViewer>
+
+            <StackPanel Name="buttonPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="0,5,0,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Button Name="addConnectionButton" Content="&#xE710;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Width="127" Click="addConnectionButton_Click"/>
+                <Button Name="removeConnectionButton" Content="&#xE738;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="10" Width="127" Click="removeConnectionButton_Click"/>
+            </StackPanel>
+
+
+        </Grid>
+</UserControl>
